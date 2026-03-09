@@ -1,15 +1,17 @@
 <!doctype html>
 <html lang="en">
-  <script
-  data-cfasync="false"
-  data-tracker-overrides="GoogleConsentMode FacebookLDU"
-  src="https://transcend-cdn.com/cm/6f7666c2-fe86-469c-9527-7fe74d3d3e2e/airgap.js"
-	  crossorigin="anonymous">
-	<!-- Note: Uses a hash of test+access@transcend.io's email in the query params -->
-	<img height="1" width="1" style="display:none;" alt=""
-	  src="https://ct.pinterest.com/v3/?event=init&tid=2614160671254&pd[em]=f1dd11149c22aac7b517d534308284eead1124ed3913995b7481e5ac7b34d145&noscript=1" />
-	</noscript>
+<head>
   <meta charset="utf-8" />
+  <script
+    data-cfasync="false"
+    data-tracker-overrides="GoogleConsentMode FacebookLDU"
+    src="https://transcend-cdn.com/cm/6f7666c2-fe86-469c-9527-7fe74d3d3e2e/airgap.js"
+    crossorigin="anonymous"></script>
+  <noscript>
+    <!-- Note: Uses a hash of test+access@transcend.io's email in the query params -->
+    <img height="1" width="1" style="display:none;" alt=""
+      src="https://ct.pinterest.com/v3/?event=init&tid=2614160671254&pd[em]=f1dd11149c22aac7b517d534308284eead1124ed3913995b7481e5ac7b34d145&noscript=1" />
+  </noscript>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gymfinity Co. — Athleisure for Urban Millennials</title>
   <meta name="description" content="Gymfinity Co. — premium athleisure that fuses performance and style. Shop the latest drops for life on the move." />
@@ -270,11 +272,22 @@
        style="color:#6C63FF; text-decoration:none; font-weight:600;">
       Privacy Center
     </a>
+    <span style="margin:0 8px;">·</span>
+    <a href="#" id="showConsentBanner" style="color:#6C63FF; text-decoration:none; font-weight:600;">
+      Cookie preferences
+    </a>
   </div>
 </footer>
+  <script src="trackers.js" defer></script>
   <script>
     // Utility JS (keep it tiny)
     document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('showConsentBanner').addEventListener('click', function(e) {
+      e.preventDefault();
+      if (typeof transcend !== 'undefined' && transcend.showConsentManager) {
+        transcend.showConsentManager({ viewState: 'AcceptOrRejectAll' });
+      }
+    });
   </script>
 </body>
 </html>
